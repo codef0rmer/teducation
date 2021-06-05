@@ -1,0 +1,40 @@
+{
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "npmScope": "teducation",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ],
+        "accessToken": "NTZkYzU5YmMtNmIzZi00ZDUwLWEyNjctZDE0NjhhMzMzODRhfHJlYWQtd3JpdGU=",
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
+    }
+  },
+  "projects": {
+    "material-sidenav": {
+      "tags": []
+    },
+    "material-sidenav-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "material-sidenav"
+      ]
+    }
+  }
+}
