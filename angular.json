@@ -53,7 +53,10 @@
               "apps/material-sidenav/src/favicon.ico",
               "apps/material-sidenav/src/assets"
             ],
-            "styles": ["./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css", "apps/material-sidenav/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "apps/material-sidenav/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -148,6 +151,102 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/material-sidenav-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "svelte-jquery-plugin": {
+      "root": "apps/svelte-jquery-plugin",
+      "sourceRoot": "apps/svelte-jquery-plugin/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nxext/svelte:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/svelte-jquery-plugin",
+            "entryFile": "apps/svelte-jquery-plugin/src/main.ts",
+            "tsConfig": "apps/svelte-jquery-plugin/tsconfig.app.json",
+            "svelteConfig": "apps/svelte-jquery-plugin/svelte.config.cjs",
+            "assets": [
+              {
+                "glob": "/*",
+                "input": "apps/svelte-jquery-plugin/public/**",
+                "output": "./"
+              }
+            ]
+          },
+          "configurations": {
+            "production": {
+              "dev": false
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nxext/svelte:build",
+          "options": {
+            "outputPath": "dist/apps/svelte-jquery-plugin",
+            "entryFile": "apps/svelte-jquery-plugin/src/main.ts",
+            "tsConfig": "apps/svelte-jquery-plugin/tsconfig.app.json",
+            "svelteConfig": "apps/svelte-jquery-plugin/svelte.config.cjs",
+            "assets": [
+              {
+                "glob": "/*",
+                "input": "apps/svelte-jquery-plugin/public/**",
+                "output": "./"
+              }
+            ],
+            "watch": true,
+            "serve": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/svelte-jquery-plugin/**/*.{ts,svelte,spec.ts}"
+            ]
+          }
+        },
+        "check": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "svelte-check",
+            "cwd": "apps/svelte-jquery-plugin"
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/svelte-jquery-plugin"],
+          "options": {
+            "jestConfig": "apps/svelte-jquery-plugin/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "svelte-jquery-plugin-e2e": {
+      "root": "apps/svelte-jquery-plugin-e2e",
+      "sourceRoot": "apps/svelte-jquery-plugin-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/svelte-jquery-plugin-e2e/cypress.json",
+            "tsConfig": "apps/svelte-jquery-plugin-e2e/tsconfig.e2e.json",
+            "devServerTarget": "svelte-jquery-plugin:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "svelte-jquery-plugin:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/svelte-jquery-plugin-e2e/**/*.{js,ts}"]
           }
         }
       }

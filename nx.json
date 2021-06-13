@@ -14,12 +14,7 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "NTZkYzU5YmMtNmIzZi00ZDUwLWEyNjctZDE0NjhhMzMzODRhfHJlYWQtd3JpdGU=",
         "canTrackAnalytics": false,
         "showUsageWarnings": true
@@ -32,9 +27,14 @@
     },
     "material-sidenav-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "material-sidenav"
-      ]
+      "implicitDependencies": ["material-sidenav"]
+    },
+    "svelte-jquery-plugin": {
+      "tags": []
+    },
+    "svelte-jquery-plugin-e2e": {
+      "tags": [],
+      "implicitDependencies": ["svelte-jquery-plugin"]
     }
   }
 }
